@@ -1,0 +1,323 @@
+<html>
+
+<head>
+  <title>Coba jQuery</title>
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="/javascripts/jquery.js"></script>
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</head>
+
+<header>
+  <div class="container">
+    <br>
+    <h3><b>Bread</b></h3>
+    <h6>Use jQuery to make delicious Bread</h6>
+    <br>
+  </div>
+</header>
+<br>
+
+<body style="background-color: gray">
+
+  <div class="container">
+    <p><b>Data List</b></p>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>String</th>
+          <th>Integer</th>
+          <th>Float</th>
+          <th>Date</th>
+          <th>Boolean</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+      </tbody>
+    </table>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+
+            <p><b>Edit Form</b></p>
+            <form id="formEdit">
+
+              <fieldset disabled>
+                <div class="form-group row">
+                  <label for="idEdit" class="col-sm-2 col-form-label">ID</label>
+                  <div class="col-sm">
+                    <input type="integer" class="form-control" id="idEdit" name="id">
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-group row">
+                <label for="string" class="col-sm-2 col-form-label">String</label>
+                <div class="col-sm">
+                  <input type="text" class="form-control" id="stringEdit" name="string">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="integer" class="col-sm-2 col-form-label">Integer</label>
+                <div class="col-sm">
+                  <input type="number" class="form-control" id="integerEdit" name="integer">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="float" class="col-sm-2 col-form-label">Float</label>
+                <div class="col-sm">
+                  <input type="float" class="form-control" id="floatEdit" name="float">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="date" class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm">
+                  <input type="date" class="form-control" id="dateEdit" name="date">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="boolean" class="col-sm-2 col-form-label">Boolean</label>
+                <div class="col-sm">
+                  <select class="custom-select" id="booleanEdit" name="boolean">
+                    <option selected>Choose the boolean</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-9">
+                  <button type="submit" class="btn btn-dark">Update</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <p><b>Add Form</b></p>
+    <form id="formAdd">
+      <input type="hidden" name="page" value="1">
+      <div class="form-group row">
+        <label for="string" class="col-sm-2 col-form-label">String</label>
+        <div class="col-sm">
+          <input type="text" class="form-control" id="string" name="string">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="integer" class="col-sm-2 col-form-label">Integer</label>
+        <div class="col-sm">
+          <input type="number" class="form-control" id="integer" name="integer">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="float" class="col-sm-2 col-form-label">Float</label>
+        <div class="col-sm">
+          <input type="float" class="form-control" id="float" name="float">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="date" class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm">
+          <input type="date" class="form-control" id="date" name="date">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="boolean" class="col-sm-2 col-form-label">Boolean</label>
+        <div class="col-sm">
+          <select class="custom-select" id="boolean" name="boolean">
+            <option selected>Choose the boolean</option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-9">
+          <button type="submit" class="btn btn-dark">Add</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</body>
+<!-- jQuery code, loading data dr API -->
+<script type="text/javascript">
+  const URL_API = "http://localhost:3000/tipedata"
+
+  $(document).ready(() => {
+    readData()
+
+    $('#formAdd').submit((event) => {
+      event.preventDefault()
+      const string = $('#string').val()
+      const integer = $('#integer').val()
+      const float = $('#float').val()
+      const date = $('#date').val()
+      const boolean = $('#boolean').val()
+      addData(string, integer, float, date, boolean)
+      //reset form
+      $('#string').val('')
+      $('#integer').val('')
+      $('#float').val('')
+      $('#date').val('')
+      $('#boolean').val('')
+    })
+
+    $('#formEdit').submit((event) => {
+      event.preventDefault()
+      const id = $('#idEdit').val()
+      const string = $('#stringEdit').val()
+      const integer = $('#integerEdit').val()
+      const float = $('#floatEdit').val()
+      const date = $('#dateEdit').val()
+      const boolean = $('#booleanEdit').val()
+      editData(id, string, integer, float, date, boolean)
+      $('#idEdit').val('')
+      $('#stringEdit').val('')
+      $('#integerEdit').val('')
+      $('#floatEdit').val('')
+      $('#dateEdit').val('')
+      $('#booleanEdit').val('')
+      $('#editModal').modal('toggle')
+    })
+
+    //.click utk existing button, .on utk non existing dr awal
+    $("table tbody").on("click", ".btn-delete", function () {
+      deleteData($(this).attr('dataid'))
+    })
+    $("table tbody").on("click", ".btn-edit", function () {
+      getData($(this).attr('dataid'))
+    })
+  })
+
+  const readData = () => {
+    $.ajax({
+      method: "GET",
+      url: URL_API
+    }).done(function (data) {
+      let dataValue = ''
+      data.forEach(item => {
+        dataValue += `
+          <tr>
+            <td>${item.id}</td>
+            <td>${item.string}</td>
+            <td>${item.integer}</td>
+            <td>${item.float}</td>
+            <td>${moment(item.date).format('DD MMM YYYY')}</td>
+            <td>${item.boolean}</td>
+            <td>
+              <button type="button" class="btn btn-dark btn-edit" dataid="${item.id}" data-toggle="modal" data-target="#editModal">Edit</button>
+              <button type="button" class="btn btn-danger btn-delete" dataid="${item.id}">Delete</button>
+            </td>
+          </tr>
+          `
+      })
+      $('table tbody').html(dataValue)
+    }).fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    })
+  }
+
+  const addData = (string, integer, float, date, boolean) => {
+    $.ajax({
+      method: "POST",
+      url: URL_API,
+      data: { string, integer, float, date, boolean }
+    }).done(function (data) {
+      readData()
+    }).fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    })
+  }
+
+  const deleteData = (id) => {
+    $.ajax({
+      method: "DELETE",
+      url: `${URL_API}/${id}`
+    }).done(function (data) {
+      readData()
+    }).fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    })
+  }
+
+  // editdata
+  const getData = (id) => {
+    $.ajax({
+      method: "GET",
+      url: `${URL_API}/${id}`
+    }).done(function (data) {
+      $('#idEdit').val(data.id)
+      $('#stringEdit').val(data.string)
+      $('#integerEdit').val(data.integer)
+      $('#floatEdit').val(data.float)
+      $('#dateEdit').val(moment(date.toLocaleDateString()).format(('DD MMM YYYY')))
+      $('#booleanEdit').val(data.boolean)
+    }).fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    })
+  }
+  const editData = (id, string, integer, float, date, boolean) => {
+    $.ajax({
+      method: "PUT",
+      url: `${URL_API}/${id}`,
+      data: { string, integer, float, date, boolean }
+    }).done(function (data) {
+      readData()
+    }).fail(function (jqXHR, textStatus) {
+      alert("Request failed: " + textStatus);
+    })
+  }
+
+   //search coba event .onkeyup jquery
+
+</script>
+
+<br>
+<div class="container">
+  <hr>
+  <footer>
+    <h6>Bread Using jQuery</h6>
+    <h6>Copyright © 2020 NirwanBakery. All rights reserved.</h6>
+  </footer>
+</div>
+
+</html>
